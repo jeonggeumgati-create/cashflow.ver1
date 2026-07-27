@@ -1,4 +1,4 @@
-<html lang="ko">
+<<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
@@ -17,11 +17,11 @@
   --purple:#7c3aed;--purple-bg:#f5f3ff;
   --radius:10px;--shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
 }
-html{width:100%;min-width:100%;margin:0;padding:0;box-sizing:border-box}
-body{width:100%;min-width:100%;margin:0;padding:0;overflow-x:hidden;box-sizing:border-box}
+*,*::before,*::after{box-sizing:border-box}
+html,body{width:100vw;max-width:100vw;margin:0;padding:0;overflow-x:hidden}
 body{font-family:'Apple SD Gothic Neo','Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
 /* 헤더 */
-header{display:flex;width:100%;background:#fff;border-bottom:1px solid var(--border);padding:0 20px;align-items:center;gap:20px;position:sticky;top:0;z-index:100;height:56px;box-sizing:border-box}
+header{display:flex;width:100vw;max-width:100vw;background:#fff;border-bottom:1px solid var(--border);padding:0 20px;align-items:center;gap:20px;position:sticky;top:0;z-index:100;height:56px}
 .logo{font-size:20px;font-weight:700;letter-spacing:-.5px;white-space:nowrap}
 .logo span{color:var(--accent)}
 nav{display:flex;gap:2px;overflow-x:auto}
@@ -29,7 +29,7 @@ nav{display:flex;gap:2px;overflow-x:auto}
 .nav-btn:hover{background:var(--surface);color:var(--text)}
 .nav-btn.active{background:var(--accent-bg);color:var(--accent);font-weight:600}
 /* 메인 */
-main{display:block;width:100%;min-width:100%;margin:0;padding:16px 12px;box-sizing:border-box}
+main{display:block;width:100vw;max-width:100vw;margin:0;padding:16px 12px}
 .page{display:none}.page.active{display:block}
 /* 업로드 */
 .upload-tabs{display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:0}
