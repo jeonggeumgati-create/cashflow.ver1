@@ -1,6 +1,8 @@
-<html lang="ko">
+<html lang="ko" translate="no">
 <head>
 <meta charset="UTF-8">
+<meta name="google" content="notranslate">
+<meta http-equiv="Content-Language" content="ko">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 <title>자금일보</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -18,18 +20,18 @@
   --radius:10px;--shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
 }
 *,*::before,*::after{box-sizing:border-box}
-html,body{width:100%;margin:0;padding:0;overflow-x:hidden}
+html{overflow-x:hidden}body{width:100%;margin:0;padding:0;overflow-x:hidden}
 body{font-family:'Apple SD Gothic Neo','Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
 /* 헤더 */
-header{display:flex;width:100%;background:#fff;border-bottom:1px solid var(--border);padding:0 20px;align-items:center;gap:20px;position:sticky;top:0;z-index:100;height:56px}
-.logo{font-size:20px;font-weight:700;letter-spacing:-.5px;white-space:nowrap}
+header{display:flex;width:100vw;margin-left:calc(-50vw + 50%);margin-right:calc(-50vw + 50%);background:#fff;border-bottom:1px solid var(--border);padding:0 12px;align-items:center;gap:10px;position:sticky;top:0;z-index:100;height:56px;box-sizing:border-box}
+.logo{font-size:16px;font-weight:700;letter-spacing:-.5px;white-space:nowrap}
 .logo span{color:var(--accent)}
-nav{display:flex;gap:2px;overflow-x:auto}
-.nav-btn{padding:7px 18px;border:none;background:none;color:var(--muted);font-size:14px;font-weight:500;cursor:pointer;border-radius:6px;transition:.15s;white-space:nowrap;font-family:inherit}
+nav{display:flex;gap:1px;overflow-x:visible;flex-wrap:nowrap}
+.nav-btn{padding:6px 10px;border:none;background:none;color:var(--muted);font-size:12px;font-weight:500;cursor:pointer;border-radius:6px;transition:.15s;white-space:nowrap;font-family:inherit}
 .nav-btn:hover{background:var(--surface);color:var(--text)}
 .nav-btn.active{background:var(--accent-bg);color:var(--accent);font-weight:600}
 /* 메인 */
-main{display:block;width:100%;margin:0;padding:12px 10px}
+main{display:block;width:100vw;margin-left:calc(-50vw + 50%);margin-right:calc(-50vw + 50%);padding:16px 14px;box-sizing:border-box}
 .page{display:none}.page.active{display:block}
 /* 업로드 */
 .upload-tabs{display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:0}
@@ -68,7 +70,7 @@ main{display:block;width:100%;margin:0;padding:12px 10px}
 .preview-wrap{background:var(--surface);border-radius:8px;padding:12px 14px;font-size:12px;color:var(--muted);margin-bottom:4px;max-height:100px;overflow:auto}
 .preview-wrap strong{color:var(--text);font-size:11px}
 /* 필터바 */
-.filter-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:14px;padding:10px 12px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border)}
+.filter-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;padding:10px 14px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border)}
 .filter-bar select,.filter-bar input{height:36px;padding:0 12px;border:1px solid var(--border);border-radius:6px;font-size:13px;background:#fff;color:var(--text);outline:none;font-family:inherit}
 .filter-bar select:focus,.filter-bar input:focus{border-color:var(--accent)}
 .pill-group{display:flex;gap:2px}
@@ -76,22 +78,22 @@ main{display:block;width:100%;margin:0;padding:12px 10px}
 .pill:hover{border-color:var(--accent);color:var(--accent)}
 .pill.active{background:var(--accent);border-color:var(--accent);color:#fff}
 /* 요약 카드 */
-.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:18px;width:100%}
-.stat-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:14px;width:100%}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;box-shadow:var(--shadow)}
 .sc-label{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
-.sc-value{font-size:22px;font-weight:700;letter-spacing:-.5px}
+.sc-value{font-size:20px;font-weight:700;letter-spacing:-.5px}
 .cv-in{color:var(--accent)}.cv-out{color:var(--red)}.cv-pos{color:var(--green)}.cv-neg{color:var(--red)}.cv-n{color:var(--text)}.cv-gold{color:var(--gold)}
 /* 테이블 */
-.tcard{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin-bottom:16px;width:100%;box-sizing:border-box}
-.thead-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--border)}
+.tcard{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin-bottom:14px;width:100%;box-sizing:border-box}
+.thead-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border)}
 .thead-title{font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
 .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
 .dot-in{background:var(--accent)}.dot-out{background:var(--red)}.dot-purple{background:var(--purple)}.dot-gold{background:var(--gold)}
 .thead-total{font-size:13px;font-weight:700}
 .t-in{color:var(--accent)}.t-out{color:var(--red)}
 table{width:100%;border-collapse:collapse}
-thead th{padding:8px 10px;text-align:left;font-size:11px;font-weight:600;color:var(--muted);background:var(--surface);border-bottom:1px solid var(--border);white-space:nowrap;text-transform:uppercase;letter-spacing:.3px;min-width:60px}
-tbody td{padding:7px 10px;border-bottom:1px solid #f3f4f6;font-size:13px;word-break:break-word;vertical-align:top}
+thead th{padding:9px 12px;text-align:left;font-size:12px;font-weight:600;color:var(--muted);background:var(--surface);border-bottom:1px solid var(--border);white-space:nowrap;text-transform:uppercase;letter-spacing:.3px;min-width:60px}
+tbody td{padding:9px 12px;border-bottom:1px solid #f3f4f6;font-size:14px;word-break:break-word;vertical-align:top}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover td{background:var(--surface)}
 .ra{text-align:right}.nowrap{white-space:nowrap}
@@ -107,7 +109,7 @@ thead th.cb-wrap,thead th:first-child:has(input[type=checkbox]){width:36px;paddi
 .tag-g{background:var(--green-bg);color:var(--green)}.tag-gold{background:var(--gold-bg);color:var(--gold)}
 .empty{padding:40px;text-align:center;color:var(--muted);font-size:13px}
 /* 2열 레이아웃 */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;min-width:0;overflow:hidden}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;min-width:0}
 /* 은행 카드 */
 .bank-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:20px}
 .bank-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
@@ -294,8 +296,7 @@ tbody tr:hover .col-edit { background:var(--surface); }
         <div class="thead-total t-in" id="totIn">0원</div>
       </div>
       <table><thead><tr>
-        <th class="cb-wrap" style="width:28px;padding:0"><input type="checkbox" id="chk-all-in" data-t="in" onclick="toggleAll(this.dataset.t,this)"></th><th style="width:84px">날짜</th><th>거래처명</th>
-        <th style="width:80px">계정과목</th><th class="ra" style="width:96px">금액</th><th style="width:80px">은행</th><th>주요내용</th><th class="col-edit-h"></th>
+        <th class="cb-wrap" style="width:26px;padding:0"><input type="checkbox" id="chk-all-in" data-t="in" onclick="toggleAll(this.dataset.t,this)"></th><th style="width:78px">날짜</th><th>거래처명</th><th style="width:74px">계정과목</th><th class="ra" style="width:86px">금액</th><th class="col-edit-h"></th>
       </tr></thead><tbody id="tbIn"></tbody></table>
     </div>
     <div class="tcard">
@@ -304,8 +305,7 @@ tbody tr:hover .col-edit { background:var(--surface); }
         <div class="thead-total t-out" id="totOut">0원</div>
       </div>
       <table><thead><tr>
-        <th class="cb-wrap" style="width:28px;padding:0"><input type="checkbox" id="chk-all-out" data-t="out" onclick="toggleAll(this.dataset.t,this)"></th><th style="width:84px">날짜</th><th>거래처명</th>
-        <th style="width:80px">계정과목</th><th class="ra" style="width:96px">금액</th><th style="width:80px">은행</th><th>주요내용</th><th class="col-edit-h"></th>
+        <th class="cb-wrap" style="width:26px;padding:0"><input type="checkbox" id="chk-all-out" data-t="out" onclick="toggleAll(this.dataset.t,this)"></th><th style="width:78px">날짜</th><th>거래처명</th><th style="width:74px">계정과목</th><th class="ra" style="width:86px">금액</th><th class="col-edit-h"></th>
       </tr></thead><tbody id="tbOut"></tbody></table>
     </div>
   </div>
@@ -1399,4 +1399,20 @@ function applySplit(){
 </div>
 
 </body>
-</html>
+</htmlconst makeRow = (t, type) => {
+    if(editingId===t.id){
+      return'<tr class="ie-row" id="er-'+t.id+'" data-eid="'+t.id+'"><td class="cb-wrap"><input type="checkbox" class="chk-tx chk-tx-'+type+'" data-id="'+t.id+'" data-type="tx" onclick="onCheck(this.dataset.type,this.dataset.id,this)"></td>'+
+        '<td class="nowrap" style="font-size:12px;color:var(--muted)">'+t.date+'</td>'+
+        '<td><div class="ie-wrap"><div class="ie-label">거래처명</div><input class="ie-input" id="ei-name-'+t.id+'" value="'+t.name.replace(/"/g,'&quot;')+'" list="pl-catlist" onkeydown="ieKey(event)"></div></td>'+
+        '<td><div class="ie-wrap"><div class="ie-label">계정과목</div><input class="ie-input" id="ei-cat-'+t.id+'" value="'+t.cat.replace(/"/g,'&quot;')+'" list="pl-catlist" onkeydown="ieKey(event)"></div></td>'+
+        '<td><div class="ie-wrap"><div class="ie-label">금액</div><input class="ie-input" id="ei-amt-'+t.id+'" type="number" value="'+t.amount+'" style="text-align:right" onkeydown="ieKey(event)"></div></td>'+
+        '<td style="vertical-align:middle"><button class="ie-save" data-id="'+t.id+'" onclick="saveEdit(this.dataset.id)">✓</button></td></tr>'+
+        '<tr class="ie-row"><td colspan="6" style="padding:0"><div class="ie-actions"><span class="ie-hint">Enter저장 · Esc취소</span><button class="ie-cancel" onclick="cancelEdit()">취소</button><button class="ie-del" data-id="'+t.id+'" onclick="delTx(this.dataset.id)">🗑</button></div></td></tr>';
+    }
+    return'<tr id="r-'+t.id+'"><td class="cb-wrap"><input type="checkbox" class="chk-tx chk-tx-'+type+'" data-id="'+t.id+'" data-type="tx" onclick="onCheck(this.dataset.type,this.dataset.id,this)"></td>'+
+      '<td class="nowrap" style="font-size:12px;color:var(--muted)">'+t.date+'</td>'+
+      '<td title="'+t.name+' | '+t.bank+' | '+t.memo+'">'+t.name+'</td>'+
+      '<td><span class="tag '+(type==='in'?'tag-b':'tag-r')+'" style="font-size:11px">'+t.cat+'</span></td>'+
+      '<td class="ra nowrap '+(type==='in'?'amt-in':'amt-out')+'">'+fmt(t.amount)+'</td>'+
+      '<td class="col-edit"><button class="edit-btn" data-id="'+t.id+'" data-type="tx" onclick="openRowEdit(this.dataset.type,this.dataset.id)" style="width:100%;font-size:11px;padding:4px 6px">✏️</button></td></tr>';
+  };>
